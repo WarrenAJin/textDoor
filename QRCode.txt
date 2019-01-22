@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <script>
+        toDownload(); 
+        // 新的方法
+        function toDownload(){ 
+            var u = navigator.userAgent;
+            var ua = u.toLowerCase();   
+            if (/iphone|ipad|ipod/.test(ua)) {  // iOS 系统 ->  跳AppStore下载地址
+                //alert("iOS"); 
+                window.location.href = 'https://www.pgyer.com/RMuP';
+            } else if ( /android/.test(ua)) { // 安卓系统 -> 跳安卓端下载地址
+                window.location.href = 'https://www.pgyer.com/gdIY';
+                //alert("android"); 
+            } else if (IsPC()){ // PC端
+
+            }
+        }
+
+        function IsPC() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        }
+
+    </script>
+</body>
+</html>
